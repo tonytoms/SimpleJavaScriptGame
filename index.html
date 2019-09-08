@@ -1,0 +1,2392 @@
+<html>
+<head>
+	<meta name='viewport' content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+	<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="js/introtoapps.min.js"></script>
+	<script type="text/javascript">
+
+var widthPercent=0;
+var heightPercent=0;
+
+/* For adjusting the objects as per the screen size
+*  Here the percentage difference from the normal screen size and available screen size is calculated
+*  This value is multiplied with all the css width, height properties.
+*/
+function adjustWindow(){
+	//width:1108
+	// height:678
+	widthPercent=($(window).width()/1108);
+	heightPercent=($(window).height()/678);
+	console.log("width:"+$(window).width());
+	console.log("height:"+$(window).height());	
+	console.log("width%:"+widthPercent);
+	console.log("height%:"+heightPercent);
+
+
+		$('#mainScreenDiv').show();
+		$('#levelScreenDiv').hide();
+		$('#level1Div').hide();
+		$('#level2Div').hide();
+		$('#level3Div').hide();
+		$('#pauseScreen').hide();
+
+					if(($('#mainScreenDiv').is(':visible'))== true  || ($('#levelScreenDiv').is(':visible'))== true|| ($('#instructionDiv').is(':visible'))== true|| ($('#creditsDiv').is(':visible'))== true){
+
+						document.getElementById('mainScreenAudio').play();
+						document.getElementById('gameOverAudio').pause();
+						document.getElementById('VictoryAudio').pause();
+						document.getElementById('levelScreenAudio').pause();
+
+					}else{
+						document.getElementById('mainScreenAudio').pause();
+						document.getElementById('gameOverAudio').pause();
+						document.getElementById('VictoryAudio').pause();
+						document.getElementById('levelScreenAudio').play();
+					}
+
+
+
+
+		$('.logoMain').css("width",(400*widthPercent)+"px" );
+		$('.logoMain').css("height",(100*heightPercent)+"px"  );
+		$('.logoMain').css("background-size",$('.logoMain').css("width")+" "+$('.logoMain').css("height"));
+
+
+		$('.buttonMain').css("border-radius",(28*widthPercent)+"px" );
+		$('.buttonMain').css("font-size",(35*widthPercent)+"px"  );
+
+
+		$('.logoFrameMain').css("width",(500*widthPercent)+"px"   );
+		$('.logoFrameMain').css("height",(300*heightPercent)+"px"   );
+		$('.logoFrameMain').css("background-size",$('.logoFrameMain').css("width")+" "+$('.logoFrameMain').css("height"));
+
+
+		$('.heroMain').css("width",(50*widthPercent)+"px"   );
+		//$('.heroMain').css("height",(75*heightPercent)+"px"   );
+		$('.heroMain').css("background-size",$('.heroMain').css("width")+" "+$('.heroMain').css("height"));
+
+		$('.enemyMain').css("width",(100*widthPercent)+"px"   );
+		$('.enemyMain').css("height",(100*heightPercent)+"px"   );
+		$('.enemyMain').css("background-size",$('.enemyMain').css("width")+" "+$('.enemyMain').css("height"));
+
+		$('#moonLevel1').css("width",(34*widthPercent)+"px"   );
+		$('#moonLevel1').css("height",(32*heightPercent)+"px"   );
+		$('#moonLevel1').css("background-size",$('#moonLevel1').css("width")+" "+$('#moonLevel1').css("height"));
+
+		$('#heroLevel1').css("width",(58*widthPercent)+"px"   );
+		$('#heroLevel1').css("height",(92*heightPercent)+"px"   );
+		$('#heroLevel1').css("background-size",$('#heroLevel1').css("width")+" "+$('#heroLevel1').css("height"));
+
+		$('#heroLevel2').css("width",(58*widthPercent)+"px"   );
+		$('#heroLevel2').css("height",(92*heightPercent)+"px"   );
+		$('#heroLevel2').css("background-size",$('#heroLevel2').css("width")+" "+$('#heroLevel2').css("height"));
+
+		$('#enemyLevel1').css("width",(158*widthPercent)+"px"   );
+		$('#enemyLevel1').css("height",(192*heightPercent)+"px"   );
+		$('#enemyLevel1').css("background-size",$('#enemyLevel1').css("width")+" "+$('#enemyLevel1').css("height"));	
+
+		$('#messageBox').css("width",(300*widthPercent)+"px"   );
+		$('#messageBox').css("height",(100*heightPercent)+"px"   );
+		$('#messageBox').css("border-radius:",(50*widthPercent)+"px"   );
+		$('#messageBox').css("font-size",(30*widthPercent)+"px"   );
+		$('#messageBox').css("padding",(50*heightPercent)+"px"   );
+		$('#messageBox').css("background-size",$('#messageBox').css("width")+" "+$('#messageBox').css("height"));
+
+		$('#messageBoxLevel2').css("width",(300*widthPercent)+"px"   );
+		$('#messageBoxLevel2').css("height",(100*heightPercent)+"px"   );
+		$('#messageBoxLevel2').css("border-radius:",(50*widthPercent)+"px"   );
+		$('#messageBoxLevel2').css("font-size",(30*widthPercent)+"px"   );
+		$('#messageBoxLevel2').css("padding",(50*heightPercent)+"px"   );
+		$('#messageBoxLevel2').css("background-size",$('#messageBoxLevel2').css("width")+" "+$('#messageBoxLevel2').css("height"));
+
+		$('#messageBoxLevel3').css("width",(300*widthPercent)+"px"   );
+		$('#messageBoxLevel3').css("height",(100*heightPercent)+"px"   );
+		$('#messageBoxLevel3').css("border-radius:",(50*widthPercent)+"px"   );
+		$('#messageBoxLevel3').css("font-size",(30*widthPercent)+"px"   );
+		$('#messageBoxLevel3').css("padding",(50*heightPercent)+"px"   );
+		$('#messageBoxLevel3').css("background-size",$('#messageBoxLevel3').css("width")+" "+$('#messageBoxLevel3').css("height"));
+
+		$('#questionLevel1').css("width",(400*widthPercent)+"px"   );
+		$('#questionLevel1').css("height",(30*heightPercent)+"px"   );
+		$('#questionLevel1').css("border-radius:",(30*widthPercent)+"px"   );
+		$('#questionLevel1').css("font-size",(30*widthPercent)+"px"   );
+		$('#questionLevel1').css("padding",(10*heightPercent)+"px"   );
+		$('#questionLevel1').css("background-size",$('#questionLevel1').css("width")+" "+$('#questionLevel1').css("height"));
+
+		$('#questionLevel2').css("width",(400*widthPercent)+"px"   );
+		$('#questionLevel2').css("height",(30*heightPercent)+"px"   );
+		$('#questionLevel2').css("border-radius:",(30*widthPercent)+"px"   );
+		$('#questionLevel2').css("font-size",(30*widthPercent)+"px"   );
+		$('#questionLevel2').css("padding",(10*heightPercent)+"px"   );
+		$('#questionLevel2').css("background-size",$('#questionLevel2').css("width")+" "+$('#questionLevel2').css("height"));
+
+		$('#questionLevel3').css("width",(400*widthPercent)+"px"   );
+		$('#questionLevel3').css("height",(30*heightPercent)+"px"   );
+		$('#questionLevel3').css("border-radius:",(30*widthPercent)+"px"   );
+		$('#questionLevel3').css("font-size",(30*widthPercent)+"px"   );
+		$('#questionLevel3').css("padding",(10*heightPercent)+"px"   );
+		$('#questionLevel3').css("background-size",$('#questionLevel3').css("width")+" "+$('#questionLevel3').css("height"));
+
+		$('.buttonClass').css("width",(90*widthPercent)+"px"   );
+		$('.buttonClass').css("height",(30*heightPercent)+"px"   );
+		$('.buttonClass').css("border-radius:",(30*widthPercent)+"px"   );
+		$('.buttonClass').css("font-size",(30*widthPercent)+"px"   );
+		$('.buttonClass').css("padding",(20*heightPercent)+"px"   );
+		$('.buttonClass').css("background-size",$('.buttonClass').css("width")+" "+$('.buttonClass').css("height"));
+
+
+		$('.pauseButton').css("width",(90*widthPercent)+"px"   );
+		$('.pauseButton').css("height",(30*heightPercent)+"px"   );
+		$('.pauseButton').css("border-radius:",(30*widthPercent)+"px"   );
+		$('.pauseButton').css("font-size",(30*widthPercent)+"px"   );
+		$('.pauseButton').css("padding",(20*heightPercent)+"px"   );
+		$('.pauseButton').css("background-size",$('.pauseButton').css("width")+" "+$('.pauseButton').css("height"));
+		
+		$('#centralPivot').css("width",(10*widthPercent)+"px"   );
+		$('#centralPivot').css("height",(50*heightPercent)+"px"   );
+		$('#centralPivot').css("background-size",$('#centralPivot').css("width")+" "+$('#centralPivot').css("height"));
+
+		$('#red').css("width",(200*widthPercent)+"px"   );
+		$('#red').css("padding-left",(30*widthPercent)+"px"   );
+		$('#red').css("background-size",$('#red').css("width")+" "+$('#red').css("height"));
+		$('#red').css("padding-top",(100*heightPercent)+"px"   );
+		$('#red').css("font-size",(30*widthPercent)+"px"   );
+			    
+
+		$('.progressBarBack').css("height",(20*heightPercent)+"px"   );
+		$('.progressBarBack').css("background-size",$('.progressBarBack').css("width")+" "+$('.progressBarBack').css("height"));
+
+		//$('#centralPivot').css("width",(10*widthPercent)+"px"   );
+		$('.progressBarFront').css("height",(20*heightPercent)+"px"   );
+		$('.progressBarFront').css("background-size",$('#centralPivot').css("width")+" "+$('.progressBarFront').css("height"));
+
+		$('#heroLevel3').css("width",(58*widthPercent)+"px"   );
+		$('#heroLevel3').css("height",(92*heightPercent)+"px"   );
+		$('#heroLevel3').css("background-size",$('#heroLevel3').css("width")+" "+$('#heroLevel3').css("height"));
+
+		$('#enemyLevel3').css("width",(100*widthPercent)+"px"   );
+		$('#enemyLevel3').css("height",(172*heightPercent)+"px"   );
+		$('#enemyLevel3').css("background-size",$('#enemyLevel3').css("width")+" "+$('#enemyLevel3').css("height"));
+
+
+
+		$('.life').css("width",(20*widthPercent)+"px"   );
+		$('.life').css("height",(20*heightPercent)+"px"   );
+		$('.life').css("background-size",$('.life').css("width")+" "+$('.life').css("height"));
+
+		$('.scrollDiv').css("width",(957*widthPercent)+"px"   );
+		$('.scrollDiv').css("height",(391*heightPercent)+"px"   );
+		$('.scrollDiv').css("font-size",(30*widthPercent)+"px"   );
+		$('.scrollDiv').css("padding",(30*heightPercent)+"px"   );
+		$('.scrollDiv').css("border-radius",(84*widthPercent)+"px"   );
+		$('.scrollDiv').css("border",(10*heightPercent)+"px solid #79555d"   );
+
+
+}
+/***********************************************************************************************************************************************************/
+		
+		/* RESET BUTTON */
+		function goHome(){
+
+			location.reload(); 			
+
+		}
+		
+/***********************************************************************************************************************************************************/
+				
+		/* GET WHICH OPERATOR based on input . Used in randQuestionGenerator() */
+		function getOperator(input){
+
+			var retVal="+";
+			switch(input){
+				case 0:
+					retVal="+";
+					break;
+				case 1:
+					retVal="-";
+					break;
+				case 3:
+					retVal="*";
+					break;
+				case 4:
+					retVal="/";
+					break;
+			}
+			return retVal;
+		}
+
+/***********************************************************************************************************************************************************/
+
+			/*  Shuffle the question and answers in a  random fashion
+			*	Generate other 3 wrong answers for displaying  along with the correct answer.
+			*/
+			function shuffleAnswers(type,question,answer){
+
+				var retVal=question+":";
+				switch(type){
+					case 1:
+
+						var ans1=answer+"!";
+						var ans2=eval(answer+"-1");
+						var ans3=eval(answer+"-2");
+						var ans4=eval(answer+"+1");
+						var ans5=eval(answer+"+2");
+						var order=random(1,5);
+						if(order==1)
+							retVal=retVal+ans1+":"+ans2+":"+ans3+":"+ans4;
+						if(order==2)
+							retVal=retVal+ans3+":"+ans5+":"+ans1+":"+ans2;
+						if(order==3)
+							retVal=retVal+ans5+":"+ans4+":"+ans2+":"+ans1;
+						if(order==4)
+							retVal=retVal+ans2+":"+ans1+":"+ans5+":"+ans3;
+						if(order==5)
+							retVal=retVal+ans4+":"+ans1+":"+ans3+":"+ans4;
+						break;
+				}
+				return retVal;
+			}
+
+
+/***********************************************************************************************************************************************************/
+
+			/* This is the main question generator. 
+			*  It randomly select a question  type.
+			*  Geneate random operants(using random()) and operators(using getOperator()).
+			*  Calculate the correct answer using eval().
+			*  Then callshufle  answers to get the answers shuffled along with wrong amswers.
+			*  sample questionAndAnswer  =  "QUESTION":"WRONG ANSWER" : "CORRECT ANSWER" ! : "WRONG ANSWER" : "WRONG ANSWER"
+			*/
+			function randQuestionGenerator()
+			{
+			     //console.log(testi+"caller is " + (arguments.callee.caller.toString()).substring(0,arguments.callee.caller.toString().indexOf("{")));
+			     //testi++;
+				var quesType 			= random(1,7);
+				var question 			= "";
+				var answer				= "";
+				var questionAndAnswer 	= "";
+
+				switch(quesType) {
+				    case 1:
+				        var var1	= random(0,9);
+				        var var2	= random(0,9);
+				        var var3	= random(0,9);
+				        var var4	= random(0,9);
+				        var oper1	= random(0,1);
+				        var oper2	= random(0,1);
+				        var oper3	= random(0,1);
+
+
+				        question 			= ""+var1+getOperator(oper1)+var2+getOperator(oper2)+var3+getOperator(oper3)+var4;
+				        answer				= eval(question);
+				        questionAndAnswer	= shuffleAnswers(1,question,answer);
+				        break;
+				    case 2:
+				        var var1	= random(10,99);
+				        var var2 	= random(10,99);
+				        var oper1 	= random(0,1);
+
+				        question 			= ""+var1+getOperator(oper1)+var2;
+	   			        answer				= eval(question);
+				        questionAndAnswer 	= shuffleAnswers(1,question,answer);
+				        break;
+				    case 3:
+				        var var1 	= random(100,999);
+				        var var2 	= random(0,9);
+				        var oper1 	= random(0,1);
+
+				        question 			= ""+var1+getOperator(oper1)+var2;
+	   			        answer				= eval(question);
+				        questionAndAnswer 	= shuffleAnswers(1,question,answer);
+				        break;
+				    case 4:
+				        var var1 	= random(10,99)+"0";
+				        var var2 	= random(10,99);
+				        var oper1 	= random(0,1);
+
+				        question 			= ""+var1+getOperator(oper1)+var2;
+	   			        answer				= eval(question);
+				        questionAndAnswer 	= shuffleAnswers(1,question,answer);
+				        break;
+				    case 5:
+				        var var1 	= random(0,9);
+				        var var2 	= random(0,9);
+				        var oper1 	= 3;
+
+				        question 			= ""+var1+getOperator(oper1)+var2;
+	   			        answer				= eval(question);
+				        questionAndAnswer 	= shuffleAnswers(1,question,answer);
+				        break;
+				    case 6:
+
+				        var var1 	= random(1,9)+"00";
+				        var var2 	= random(0,9);
+				        var oper1 	= 3;
+
+				        question 			= ""+var1+getOperator(oper1)+var2;
+	   			        answer				= eval(question);
+				        questionAndAnswer 	= shuffleAnswers(1,question,answer);
+				        break;	
+				    case 7:
+
+				        var var1 	= random(1,99)*5;
+				        var var2 	= 5;
+				        var oper1	= 4;
+
+				        question 			= ""+var1+getOperator(oper1)+var2;
+	   			        answer				= eval(question);
+				        questionAndAnswer 	= shuffleAnswers(1,question,answer);
+				        break;				  		        			        
+				} 
+				return questionAndAnswer;
+			}
+
+/***********************************************************************************************************************************************************/
+/***********************************************************************************************************************************************************/
+/***********************************************************************************************************************************************************/
+$(window).resize(function() {
+			goHome();
+		});
+
+
+$(document).ready(function(){
+
+		adjustWindow();
+		document.getElementById('mainScreenAudio').play();
+		document.getElementById('gameOverAudio').pause();
+		document.getElementById('VictoryAudio').pause();
+		document.getElementById('levelScreenAudio').pause();
+		$('#mainScreenDiv').show();
+		$('#levelScreenDiv').hide();
+		$('#level1Div').hide();
+		$('#level2Div').hide();
+		$('#level3Div').hide();
+		$('#instructionDiv').hide();
+		$('#creditsDiv').hide();
+		$('#pauseScreen').hide();
+
+/***********************************************************************************************************************************************************/
+				
+		/*	When click play button , main screen buttons are removed and level screen buttons are displayed */
+		$('#playMainButton').onTap(function(){
+
+
+			$('#mainScreenDiv').hide();
+			$('#levelScreenDiv').show();
+			$('#level1Div').hide();
+			$('#level2Div').hide();
+			$('#level3Div').hide();
+			$('#instructionDiv').hide();
+			$('#creditsDiv').hide();
+			$('#pauseScreen').hide();
+
+		});
+
+/***********************************************************************************************************************************************************/
+				
+		/*	When click instruction button , main screen buttons are removed and instruction screen is displayed */
+		$('#instructionMainButton').onTap(function(){
+
+
+			$('#mainScreenDiv').hide();
+			$('#levelScreenDiv').hide();
+			$('#level1Div').hide();
+			$('#level2Div').hide();
+			$('#level3Div').hide();
+			$('#instructionDiv').show();
+			$('#creditsDiv').hide();
+			$('#pauseScreen').hide();
+
+		});
+/***********************************************************************************************************************************************************/
+				
+		/*	When click instruction button , main screen buttons are removed and instruction screen is displayed */
+		$('#creditMainButton').onTap(function(){
+
+
+			$('#mainScreenDiv').hide();
+			$('#levelScreenDiv').hide();
+			$('#level1Div').hide();
+			$('#level2Div').hide();
+			$('#level3Div').hide();
+			$('#instructionDiv').hide();
+			$('#creditsDiv').show();
+			$('#pauseScreen').hide();
+
+		});
+/***********************************************************************************************************************************************************/
+		/*	When clicked back button on level screen , All other div's except the main screen div is hide */
+		$('#levelBackButton').onTap(function(){
+
+
+			$('#mainScreenDiv').show();
+			$('#levelScreenDiv').hide();
+			$('#level1Div').hide();
+			$('#level2Div').hide();
+			$('#level3Div').hide();
+			$('#instructionDiv').hide();
+			$('#creditsDiv').hide();
+			$('#pauseScreen').hide();
+
+		});
+
+/***********************************************************************************************************************************************************/
+		/*	Level 1 div is shown and all other divs are hide. */
+		$('#level1Button').onTap(function(){
+			
+			document.getElementById('mainScreenAudio').pause();
+			document.getElementById('gameOverAudio').pause();
+			document.getElementById('VictoryAudio').pause();
+			document.getElementById('levelScreenAudio').play();
+			$('#mainScreenDiv').hide();
+			$('#levelScreenDiv').hide();
+			$('#level2Div').hide();
+			$('#level3Div').hide();
+			$('#level1Div').show();
+			$('#instructionDiv').hide();
+			$('#creditsDiv').hide();
+
+			/* The  wallHangingTimingFn on level 1 is called . */
+			if(($('#level1Div').is(':visible'))== true){
+				wallHangingTimingFn();
+			}
+
+			$('#messageBox').show();
+			$('#questionLevel1').hide();
+			$('#answer1Level1').hide();
+			$('#answer2Level1').hide();
+			$('#answer3Level1').hide();
+			$('#answer4Level1').hide();
+			levelIntroFn('#messageBox',1,0);
+			levelIntroFn('#messageBox',2,1000);
+			levelIntroFn('#messageBox',3,2000);
+			levelIntroFn('#messageBox',4,3000);
+
+
+		});
+
+/***********************************************************************************************************************************************************/
+		/*	Level 2 div is shown and all other divs are hide. */
+		$('#level2Button').onTap(function(){
+
+			document.getElementById('mainScreenAudio').pause();
+			document.getElementById('gameOverAudio').pause();
+			document.getElementById('VictoryAudio').pause();
+			document.getElementById('levelScreenAudio').play();
+			var enemyCounter=1;
+			$('#mainScreenDiv').hide();
+			$('#levelScreenDiv').hide();
+			$('#level1Div').hide();
+			$('#level2Div').show();
+			$('#level3Div').hide();
+			$('#instructionDiv').hide();
+			$('#creditsDiv').hide();
+			$('#pauseScreen').hide();
+
+			gameOverLevel2=false;
+
+
+			
+			$('#messageBoxLevel2').show();
+			$('#questionLevel2').hide();
+			$('#answer1Level2').hide();
+			$('#answer2Level2').hide();
+			$('#answer3Level2').hide();
+			$('#answer4Level2').hide();
+			levelIntroFn('#messageBoxLevel2',1,0);
+			levelIntroFn('#messageBoxLevel2',2,1000);
+			levelIntroFn('#messageBoxLevel2',3,2000);
+			levelIntroFn('#messageBoxLevel2',4,3000);
+			enemyMoveLevel2TimingFn();
+
+			/*******************************************************************************************/
+			/* The central piller in level 2 so that enemies hit the piller and falls down */
+			$('#centralPivot').onCollision(function(event){
+				//height:678 - 220 Degree
+				//heiht :1040- 200 Degree    /678
+				// +362 = -20
+				// + 1  = 
+					if($(window).width()>$(window).height()){
+						console.log('width');
+						$("#"+event.context.id).moveTo(220);
+					}
+					else
+						$("#"+event.context.id).moveTo(200);
+
+			});
+
+			/*******************************************************************************************/
+			
+
+
+
+
+		});
+/**********************************************************************************************************************************************************/
+
+		/*	Level 3 div is shown and all other divs are hide. */
+		$('#level3Button').onTap(function(){
+
+			document.getElementById('mainScreenAudio').pause();
+			document.getElementById('gameOverAudio').pause();
+			document.getElementById('VictoryAudio').pause();
+			document.getElementById('levelScreenAudio').play();
+				$('#mainScreenDiv').hide();
+				$('#levelScreenDiv').hide();
+				$('#level1Div').hide();
+				$('#level2Div').hide();
+				$('#level3Div').show();
+				$('#instructionDiv').hide();
+				$('#creditsDiv').hide();
+				$('#pauseScreen').hide();
+
+				$('#messageBoxLevel3').show();
+				$('#questionLevel3').hide();
+				$('#answer1Level3').hide();
+				$('#answer2Level3').hide();
+				$('#answer3Level3').hide();
+				$('#answer4Level3').hide();
+
+				levelIntroFn('#messageBoxLevel3',1,0);
+				levelIntroFn('#messageBoxLevel3',2,1000);
+				levelIntroFn('#messageBoxLevel3',3,2000);
+				levelIntroFn('#messageBoxLevel3',4,3000);
+
+				heroLifeLevel3=5;
+				enemyLifeLevel3=5;
+
+
+		});
+/***********************************************************************************************************************************************************/
+
+		/* Introduction message for level 1 level 2 and level 3 */
+		function levelIntroFn(messageBox,level1Counter,inTime) {
+
+	    	setTimeout(function(){ 
+	    		if(level1Counter==1){
+					$(messageBox).text(' R E A D Y   !!!!!!');
+	    		}else if(level1Counter==2){
+					$(messageBox).text(' S E T   !!!!!!');
+	    		}else if(level1Counter==3){
+					$(messageBox).text(' G O   !!!!!!');
+	    		}else{
+    				$(messageBox).hide();
+    				if(messageBox=='#messageBox')
+    					fireQuestionLevel1(0);
+    				else if(messageBox=='#messageBoxLevel2')
+    					fireQuestionLevel2(0);
+    				else if(messageBox=='#messageBoxLevel3')
+    					fireQuestionLevel3(0);
+
+	    		}
+			}, inTime);
+		}
+
+
+/***********************************************************************************************************************************************************/
+
+		/* During level 1, the hangling wall appears on regular intervals. This function is used to add wallhanging div at regular intervals */
+		var wallhangingVar="";
+		function wallHangingTimingFn() {
+
+	    	wallhangingVar=setInterval(function(){ 
+
+	    			/*  This if condition is to make sure that all wallHanging divs are removed before creating new wallHanging */
+	    			if ($('#wallHanging').length >  0){
+						$('.wallhangingClass').remove();
+					}
+
+	    			$('#level1Div').append("<div  id='wallHanging' class='wallhangingClass'></div>");
+	    			$('#wallHanging').css("width",(94*widthPercent)+"px"   );
+					$('#wallHanging').css("height",(321*heightPercent)+"px"   );
+					$('#wallHanging').css("background-size",$('#wallHanging').css("width")+" "+$('#wallHanging').css("height"));
+					$('#wallHanging').moveTo(270);
+					$('#wallHanging').speed(2);
+					$('#wallHanging').autoBounceOff(true);
+
+					$('#enemyLevel1').onCollision(function(){
+	            		document.getElementById('wallHanging').className ='rotate';
+	        		});
+
+	    			
+			}, 7500,true);
+		}
+
+/***********************************************************************************************************************************************************/
+			
+		var enemyCounter=1;
+		/*  During level 2 , enemies aare created using the counter  'enemyCounter'  and appended to level2div at regular intervals */
+		var enemyMoveLevel2Var="";
+		function enemyMoveLevel2TimingFn() {
+
+	    	enemyMoveLevel2Var=setInterval(function(){ 
+
+					$('#level2Div').append(	"<div id='enemyLevel1ID"+enemyCounter+"' class='enemyLevel2' 	></div>");
+					$('#level2Div').append(	"<div  id='enemy2Level1ID"+enemyCounter+"' class='enemy2Level2' 	></div>");
+
+					$('.enemyLevel2').css("width",(50*widthPercent)+"px"   );
+					$('.enemyLevel2').css("height",(50*heightPercent)+"px"   );
+					$('.enemyLevel2').css("background-size",$('.enemyLevel2').css("width")+" "+$('.enemyLevel2').css("height"));
+
+					$('.enemy2Level2').css("width",(50*widthPercent)+"px"   );
+					$('.enemy2Level2').css("height",(50*heightPercent)+"px"   );
+					$('.enemy2Level2').css("background-size",$('.enemy2Level2').css("width")+" "+$('.enemy2Level2').css("height"));
+
+					$("#"+"enemyLevel1ID"+enemyCounter).moveTo(270);
+					$("#"+"enemyLevel1ID"+enemyCounter).speed(0.2);
+					$("#"+"enemy2Level1ID"+enemyCounter).moveTo(90);
+					$("#"+"enemy2Level1ID"+enemyCounter).speed(.2);
+					
+					enemyCounter++;
+
+	    			
+			}, 3000);
+		}
+
+/***********************************************************************************************************************************************************/
+
+		var gameOverLevel2=false;		// For game over check in level 2
+
+   		var answer=0;					// Used in levelfn . Saves the correct answer number.
+
+   		var heroLifeLevel3=0;			// Variable holding hero  life count(heart symbol) in level 3
+   		var enemyLifeLevel3=0;			// Variable holding enemy life count(heart symbol) in level 3
+
+   		var timeOutVarLevel1="";		// Variable holding return value of 'time out' calls for level 1
+   		var timeOutVarLevel2="";		// Variable holding return value of 'time out' calls for level 2
+   		var timeOutVarLevel3="";		// Variable holding return value of 'time out' calls for level 3
+
+		document.getElementById("timerButtonLevel1").addEventListener("click", levelfn);// Binding timerButtonLevel1 onClick with levelfn
+		document.getElementById("timerButtonLevel2").addEventListener("click", levelfn);// Binding timerButtonLevel1 onClick with levelfn
+		document.getElementById("timerButtonLevel3").addEventListener("click", levelfn);// Binding timerButtonLevel1 onClick with levelfn
+		
+/***********************************************************************************************************************************************************/
+
+		/* Funtion for clicking the timerButtonLevel1 button which will call  levelfn */
+		function fireQuestionLevel1(inTime){
+	    	
+	    	setTimeout(function(){
+				document.getElementById('timerButtonLevel1').click();
+			}, inTime);
+
+		}		
+		/* Funtion for clicking the timerButtonLevel2 button which will call  levelfn */
+		function fireQuestionLevel2(inTime){
+	    	
+	    	setTimeout(function(){
+				document.getElementById('timerButtonLevel2').click();
+			}, inTime);
+
+		}
+		/* Funtion for clicking the timerButtonLevel3 button which will call  levelfn */
+ 		function fireQuestionLevel3(inTime){
+	    	
+	    	setTimeout(function(){
+				document.getElementById('timerButtonLevel3').click();
+			}, inTime);
+
+		}
+/***********************************************************************************************************************************************************/
+
+		/*  Generate random question and answers using randQuestionGenerator()
+		*   Check for correct answer among the  given options
+		*   Assigns the question and answers to appropriate div's
+		*/
+		function levelfn() {
+				
+				$('.progressBarFront').stop();
+				$('.progressBarFront').css("width","0%");// The time out progress bar at bottom
+
+				if(($('#level1Div').is(':visible'))== true){
+					$('#messageBox').hide();
+					$('#questionLevel1').show();
+					$('#answer1Level1').show();
+					$('#answer2Level1').show();
+					$('#answer3Level1').show();
+					$('#answer4Level1').show();
+				}else if(($('#level2Div').is(':visible'))== true){
+					$('#messageBoxLevel2').hide();
+					$('#questionLevel2').show();
+					$('#answer1Level2').show();
+					$('#answer2Level2').show();
+					$('#answer3Level2').show();
+					$('#answer4Level2').show();
+				}else if(($('#level3Div').is(':visible'))== true){
+					$('#messageBoxLevel3').hide();
+					$('#questionLevel3').show();
+					$('#answer1Level3').show();
+					$('#answer2Level3').show();
+					$('#answer3Level3').show();
+					$('#answer4Level3').show();
+					$('.life').remove();
+
+					/* Append hero life(heart symbol) to the level3div */
+					for(var counter=1,lifeWidth=15;counter<=heroLifeLevel3;counter++,lifeWidth+=25){
+							$('#level3Div').append("<div id='heroLife"+counter+"'  class='life' style='left:"+lifeWidth+"px;'></div>");
+					}
+					/* Append enemy life(heart symbol) to the level3div */
+					for(var counter=1,lifeWidth=15;counter<=enemyLifeLevel3;counter++,lifeWidth+=25){
+							$('#level3Div').append("<div id='enemyLife"+counter+"' class='life' style='left:"+(85+(counter*2))+"%;top:52%'></div>");
+					}
+				}
+
+				var quesAndAns 	= randQuestionGenerator();// generate random question and options which is ':' seperated.
+				var totArray 	= quesAndAns.split(':')   // split using ':'
+				var question 	= totArray[0];
+				var answer1 	= totArray[1];
+				var answer2 	= totArray[2];
+				var answer3 	= totArray[3];
+				var answer4 	= totArray[4];
+
+				/*   NOTE : answer with '!' is the correct answer and others the wrong answer */
+				if(answer1.indexOf("!") !=-1){
+
+					answer 	= 1;
+					answer1 = answer1.substring(0, answer1.length - 1);
+
+				}else if(answer2.indexOf("!") !=-1){
+
+					answer 	= 2;
+					answer2 = answer2.substring(0, answer2.length - 1);
+
+				}else if(answer3.indexOf("!") !=-1){
+
+					answer 	= 3;
+					answer3 = answer3.substring(0, answer3.length - 1);
+
+				}else if(answer4.indexOf("!") !=-1){
+
+					answer 	= 4;
+					answer4 = answer4.substring(0, answer4.length - 1);
+
+				}
+
+				if(($('#level1Div').is(':visible'))== true){
+					$('#questionLevel1').text(question);
+					$('#answer1Level1').text(answer1);
+					$('#answer2Level1').text(answer2);
+					$('#answer3Level1').text(answer3);
+					$('#answer4Level1').text(answer4);	
+
+					$('.progressBarFront').animate({width:'+=100%'}, 10000, 'linear');
+
+			    	timeOutVarLevel1=setTimeout(function(){
+						document.getElementById('timeOutLevel1').click();
+					}, 10000);
+
+				}else if(($('#level2Div').is(':visible'))== true){
+
+					$('#questionLevel2').text(question);
+					$('#answer1Level2').text(answer1);
+					$('#answer2Level2').text(answer2);
+					$('#answer3Level2').text(answer3);
+					$('#answer4Level2').text(answer4);	
+
+					$('.progressBarFront').animate({width:'+=100%'}, 10000, 'linear');
+
+			    	timeOutVarLevel2=setTimeout(function(){
+						document.getElementById('timeOutLevel2').click();
+					}, 10000);
+				}else if(($('#level3Div').is(':visible'))== true){
+
+					$('#questionLevel3').text(question);
+					$('#answer1Level3').text(answer1);
+					$('#answer2Level3').text(answer2);
+					$('#answer3Level3').text(answer3);
+					$('#answer4Level3').text(answer4);	
+
+					$('.progressBarFront').animate({width:'+=100%'}, 10000, 'linear');
+
+			    	timeOutVarLevel3=setTimeout(function(){
+						document.getElementById('timeOutLevel3').click();
+					}, 10000);
+				}
+
+	    	
+
+		
+		}
+		
+
+/***********************************************************************************************************************************************************/
+
+		/* 		FOR LEVEL 1
+		* Change position of enemy based on answers
+		* If answer is wrong, enemy will move right
+		* If answer is correct, enemy will move left
+		* If the enemy reach near to the hero, a 'game over' message is displayed
+		* If enemy go beyond the screen on left, a 'you win' message is displayed 
+		*/		
+		function changeEnemyLevel1(type){
+
+				var leftenemy 	= 0;
+				var lefthero	= 0;
+				var rightenemy	= 0;
+				var leftenemy	= 0;
+
+
+				leftenemy		= $('#enemyLevel1').css("left");
+				leftenemy 		= leftenemy.substring(0,leftenemy.length-2);
+				lefthero		= $('#heroLevel1').css("left");
+				lefthero		= lefthero.substring(0,lefthero.length-2);
+				console.log(leftenemy);
+				if(type=='wrong'){
+					
+						leftenemy 	= eval(leftenemy+"+50");
+						var left 	= leftenemy+"px";
+				console.log(left);
+
+					    $("#enemyLevel1").animate({left: left});
+
+
+				}else{
+					
+						leftenemy 	= eval(leftenemy+"-50");
+						var left 	= leftenemy+"px";
+					    $("#enemyLevel1").animate({left: left});
+
+				}
+
+				rightenemy 	= leftenemy+$("#enemyLevel1").outerWidth() ;
+
+				if( lefthero<=rightenemy){
+
+						$('#messageBox').show();
+						$('#messageBox').text('G a m e    O v e r !!!!!!');
+						$('#heroLevel1').css("animation","none");
+						$('#heroLevel1').css("background-image","url('images/hero/hero4.png')");
+						$('#heroLevel1').css("z-index",'9');
+						$('#heroLevel1').animate({top: '20%'}, "slow");
+         				$('#heroLevel1').animate({top: '100vh'}, "slow");
+		    			$('#questionLevel1').hide();
+		    			$('#answer1Level1').hide();
+		    			$('#answer2Level1').hide();
+		    			$('#answer3Level1').hide();
+		    			$('#answer4Level1').hide();
+						document.getElementById('mainScreenAudio').pause();
+						document.getElementById('gameOverAudio').play();
+						document.getElementById('VictoryAudio').pause();
+						document.getElementById('levelScreenAudio').pause();
+
+				}else if(rightenemy<0){
+
+						$('#messageBox').show();
+						$('#messageBox').text('C O N G R A T S ! ! ! You Win');
+		    			$('#questionLevel1').hide();
+		    			$('#answer1Level1').hide();
+		    			$('#answer2Level1').hide();
+		    			$('#answer3Level1').hide();
+		    			$('#answer4Level1').hide();
+						document.getElementById('mainScreenAudio').pause();
+						document.getElementById('gameOverAudio').pause();
+						document.getElementById('VictoryAudio').play();
+						document.getElementById('levelScreenAudio').pause();
+
+				}else{
+
+					fireQuestionLevel1(1000);
+
+			}
+
+		}
+
+/***********************************************************************************************************************************************************/
+
+		/*    			FOR LEVEL 2
+		* Change position of hero based on answers
+		* If answer is wrong, hero will move left
+		* If answer is correct, hero will move right
+		* If the hero reach alert area and collidies with enemy, a 'game over' message is displayed
+		* If hero go beyond the screen on right, a 'you win' message is displayed
+		*/
+		function changeHeroLevel2(type){
+
+				var leftenemy 	= 0;
+				var lefthero	= 0;
+				var righthero	= 0;
+				var lefthero	= 0;
+
+				if(type=='wrong'){
+					
+					var left 		= $('#heroLevel2').css("left");
+						left 		= left.substring(0,left.length-2);
+						left 		= eval(left+"-50");
+						lefthero 	= left;
+						left 		= left+"px";
+					    $("#heroLevel2").animate({left: left});
+
+				}else{
+					
+					var left 		= $('#heroLevel2').css("left");
+						left 		= left.substring(0,left.length-2);
+						left 		= eval(left+"+50");
+						lefthero 	= left;
+						left 		= left+"px";
+				    	$("#heroLevel2").animate({left: left});
+
+				}
+
+				righthero 		= $('#heroLevel2').css("right");
+				righthero 		= righthero.substring(0,righthero.length-2);
+				lefthero 		= $('#heroLevel2').css("left");
+				lefthero 		= lefthero.substring(0,lefthero.length-2);			
+				var redArea		= $('#red').css("width");
+				redArea 		= redArea.substring(0,redArea.length-2);			
+
+
+				
+		    			//alert(redArea+":"+lefthero);
+
+
+					if(righthero<0){
+						$('#messageBoxLevel2').show();
+						$('#messageBoxLevel2').text('C O N G R A T S ! ! ! You Win');
+		    			$('#questionLevel2').hide();
+		    			$('#answer1Level2').hide();
+		    			$('#answer2Level2').hide();
+		    			$('#answer3Level2').hide();
+		    			$('#answer4Level2').hide();
+						document.getElementById('mainScreenAudio').pause();
+						document.getElementById('gameOverAudio').pause();
+						document.getElementById('VictoryAudio').play();
+						document.getElementById('levelScreenAudio').pause();
+
+				}else if(eval(lefthero)<eval(redArea)){
+						gameOverLevel2=true;
+						$('#messageBoxLevel2').show();
+						$('#heroLevel2').css("animation","none");
+						$('#heroLevel2').css("background-image","url('images/hero/hero4.png')");
+						$('#heroLevel2').css("z-index",'9');
+						$('#heroLevel2').animate({top: '20%'}, "slow");
+						 $('#heroLevel2').animate({top: '100vh'}, "slow");
+						$('#messageBoxLevel2').text('G A M E     O  V  E  R  !!!!!');
+						$('#questionLevel2').hide();
+						$('#answer1Level2').hide();
+						$('#answer2Level2').hide();
+						$('#answer3Level2').hide();
+						$('#answer4Level2').hide();	
+						document.getElementById('mainScreenAudio').pause();
+						document.getElementById('gameOverAudio').play();
+						document.getElementById('VictoryAudio').pause();
+						document.getElementById('levelScreenAudio').pause();
+				}else{
+						fireQuestionLevel2(1000);
+
+			}
+
+		}
+
+/***********************************************************************************************************************************************************/
+
+		/*    			FOR LEVEL 3
+		* Change position of hero based on answers
+		* If answer is wrong  , hero  will fire the canon to enemy and enemy will loose 1 life(heart symbol)
+		* If answer is correct, enemy will fire the canon to hero  and hero  will loose 1 life(heart symbol)
+		* If the hero looses all hearts, a 'game over' message is displayed
+		* If the enemy looses all hearts, a 'you win' message is displayed
+		*/
+		function fireLevel3(type){
+
+
+				if(type=='wrong'){
+					
+						$('#level3Div').append("<div  id='canonEnemy' ></div>");
+
+
+						$('#canonEnemy').css("width",(68*widthPercent)+"px"   );
+						$('#canonEnemy').css("height",(36*heightPercent)+"px"   );
+						$('#canonEnemy').css("background-size",$('#canonEnemy').css("width")+" "+$('#canonEnemy').css("height"));
+
+						$('#enemyLevel3').css('animation','enemyFireCanon 1s linear infinite');
+						setTimeout(function(){
+
+						$('#heroLevel3').fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+
+						},1000);
+
+						setTimeout(function(){
+
+							$('#canonEnemy').remove();
+							$('#enemyLevel3').css('animation','none');
+
+						},2000);
+						heroLifeLevel3--;
+
+				}else{
+						$('#level3Div').append("<div  id='canonHero' ></div>")
+						$('#canonHero').css("width",(68*widthPercent)+"px"   );
+						$('#canonHero').css("height",(36*heightPercent)+"px"   );
+						$('#canonHero').css("background-size",$('#canonHero').css("width")+" "+$('#canonHero').css("height"));
+
+						$('#heroLevel3').css('animation','heroFireCanon 1s linear infinite');
+						setTimeout(function(){
+
+						$('#enemyLevel3').fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+
+						},1000);							
+						setTimeout(function(){
+
+							$('#canonHero').remove();
+							$('#heroLevel3').css('animation','none');
+
+						},1000);
+						enemyLifeLevel3--;
+				}
+
+				if(heroLifeLevel3<0){
+
+						$('#messageBoxLevel3').show();
+						$('#messageBoxLevel3').text('G  A  M  E   O V  E  R  !!!!!!!!');
+							setTimeout(function(){
+								$('#heroLevel3').css("animation","none");
+								$('#heroLevel3').css("background-image","url('images/hero/hero4.png')");
+								$('#heroLevel3').css("z-index",'9');
+								$('#heroLevel3').animate({top: '20%'}, "slow");
+								$('#heroLevel3').animate({top: '100vh'}, "slow");
+							},1000);						
+		    			$('#questionLevel3').hide();
+		    			$('#answer1Level3').hide();
+		    			$('#answer2Level3').hide();
+		    			$('#answer3Level3').hide();
+		    			$('#answer4Level3').hide();
+						document.getElementById('mainScreenAudio').pause();
+						document.getElementById('gameOverAudio').play();
+						document.getElementById('VictoryAudio').pause();
+						document.getElementById('levelScreenAudio').pause();
+
+				}else 	if(enemyLifeLevel3<0){
+
+						$('#messageBoxLevel3').show();
+						$('#messageBoxLevel3').text('C O N G R A T S ! ! ! You Win');
+							setTimeout(function(){
+								$('#enemyLevel3').css("animation","none");
+								$('#enemyLevel3').css("background-image","url('images/enemy/enemy25.png')");
+								$('#enemyLevel3').css("z-index",'9');
+								$('#enemyLevel3').animate({top: '20%'}, "slow");
+			       				$('#enemyLevel3').animate({top: '100vh'}, "slow");
+							},1000);	
+
+		    			$('#questionLevel3').hide();
+		    			$('#answer1Level3').hide();
+		    			$('#answer2Level3').hide();
+		    			$('#answer3Level3').hide();
+		    			$('#answer4Level3').hide();					
+						document.getElementById('mainScreenAudio').pause();
+						document.getElementById('gameOverAudio').pause();
+						document.getElementById('VictoryAudio').play();
+						document.getElementById('levelScreenAudio').pause();
+				}else{
+						fireQuestionLevel2(2000);
+
+			}
+
+		}
+
+/***********************************************************************************************************************************************************/
+/***********************************************************************************************************************************************************/
+
+	/* below are the onTap functions for all buttons( questions,answers, hidden time out ) in the gameplay */
+	    		
+				/* When pause button is pressed, all timeouts are cleared , level divs are hide and pause div is displayed*/
+	    		var levelVar="";
+	    		$('.pauseButton').onTap(function(){
+
+					clearTimeout(timeOutVarLevel1);
+					clearTimeout(timeOutVarLevel2);
+					clearTimeout(timeOutVarLevel3);
+					clearInterval(wallhangingVar);
+					clearInterval(enemyMoveLevel2Var);
+					
+
+					if(($('#level1Div').is(':visible'))== true){
+						levelVar="level1";
+					}else if(($('#level2Div').is(':visible'))== true){
+						levelVar="level2";
+					}else if(($('#level3Div').is(':visible'))== true){
+						levelVar="level3";
+					}
+					$('#pauseScreen').show();
+					$('#level1Div').hide();
+					$('#level2Div').hide();
+					$('#level3Div').hide();
+
+					$('#backPause').onTap(function(){ 
+						$('#helpButton').show();
+						$('#ResumeButton').show();
+						$('#backPause').hide();
+						$('#instructionTextPauseScreen').hide();
+					});
+					$('#helpButton').onTap(function(){
+
+						$('#helpButton').hide();
+						$('#ResumeButton').hide();
+						$('#backPause').show();
+						$('#instructionTextPauseScreen').show();
+
+					});
+					$('#ResumeButton').onTap(function(){
+							if(levelVar=="level1"){
+									$('#pauseScreen').hide();
+									$('#level1Div').show();
+									$('#level2Div').hide();
+									$('#level3Div').hide();
+									wallHangingTimingFn();
+							}else if(levelVar=="level2"){
+									$('#pauseScreen').hide();
+									$('#level1Div').hide();
+									$('#level2Div').show();
+									$('#level3Div').hide();
+									enemyMoveLevel2TimingFn();
+							}else if(levelVar=="level3"){
+									$('#pauseScreen').hide();
+									$('#level1Div').hide();
+									$('#level2Div').hide();
+									$('#level3Div').show();
+							}
+							
+							levelfn();			
+					});
+
+	    		});
+/***********************************************************************************************************************************************************/
+				/* Answer button on tap function*/
+	    		$('#answer1Level1').onTap(function(){
+							if(1==answer){
+								$('#messageBox').text(' C O R R E C T  !!!!!!');
+								changeEnemyLevel1('right');
+
+							}else{
+								$('#messageBox').text(' W R O N G  !!!!!!');
+								changeEnemyLevel1('wrong');
+							}
+				});			
+/***********************************************************************************************************************************************************/
+	    		/* Answer button on tap function*/
+	    		$('#answer2Level1').onTap(function(){
+							if(2==answer){
+								$('#messageBox').text(' C O R R E C T  !!!!!!');
+								changeEnemyLevel1('right');
+							}else{
+								$('#messageBox').text(' W R O N G  !!!!!!');
+								changeEnemyLevel1('wrong');
+							}
+				});	
+/***********************************************************************************************************************************************************/
+	    		/* Answer button on tap function*/
+	    		$('#answer3Level1').onTap(function(){
+							if(3==answer){
+								$('#messageBox').text(' C O R R E C T  !!!!!!');
+								changeEnemyLevel1('right');
+							}else{
+								$('#messageBox').text(' W R O N G  !!!!!!');
+								changeEnemyLevel1('wrong');
+							}
+				});	
+/***********************************************************************************************************************************************************/
+	    		/* Answer button on tap function*/
+	    		$('#answer4Level1').onTap(function(){
+							if(4==answer){
+								$('#messageBox').text(' C O R R E C T  !!!!!!');
+								changeEnemyLevel1('right');
+							}else{
+								$('#messageBox').text(' W R O N G  !!!!!!');
+								changeEnemyLevel1('wrong');
+							}
+				});	
+/***********************************************************************************************************************************************************/
+	    		/* Time Out Button Level 1*/
+	    		$('#timeOutLevel1').onTap(function(){
+			
+						$('#messageBox').show();
+						$('#questionLevel1').hide();
+						$('#answer1Level1').hide();
+						$('#answer2Level1').hide();
+						$('#answer3Level1').hide();
+						$('#answer4Level1').hide();
+						$('#messageBox').text(' T I M E    O U T  !!!!!!');
+						changeEnemyLevel1('wrong');
+							
+				});
+/***********************************************************************************************************************************************************/
+	    		/* Answer button on tap function*/
+	    		$('#answer1Level2').onTap(function(){
+
+							if(1==answer){
+								$('#messageBoxLevel2').text(' C O R R E C T  !!!!!!');
+								changeHeroLevel2('right');
+
+							}else{
+								$('#messageBoxLevel2').text(' W R O N G  !!!!!!');
+								changeHeroLevel2('wrong');
+							}
+				});			
+/***********************************************************************************************************************************************************/
+	    		/* Answer button on tap function*/
+	    		$('#answer2Level2').onTap(function(){
+							if(2==answer){
+								$('#messageBoxLevel2').text(' C O R R E C T  !!!!!!');
+								changeHeroLevel2('right');
+							}else{
+								$('#messageBoxLevel2').text(' W R O N G  !!!!!!');
+								changeHeroLevel2('wrong');
+							}
+				});	
+/***********************************************************************************************************************************************************/
+	    		/* Answer button on tap function*/
+	    		$('#answer3Level2').onTap(function(){
+							if(3==answer){
+								$('#messageBoxLevel2').text(' C O R R E C T  !!!!!!');
+								changeHeroLevel2('right');
+							}else{
+								$('#messageBoxLevel2').text(' W R O N G  !!!!!!');
+								changeHeroLevel2('wrong');
+							}
+				});	
+/***********************************************************************************************************************************************************/
+	    		/* Answer button on tap function*/
+	    		$('#answer4Level2').onTap(function(){
+							if(4==answer){
+								$('#messageBoxLevel2').text(' C O R R E C T  !!!!!!');
+								changeHeroLevel2('right');
+							}else{
+								$('#messageBoxLevel2').text(' W R O N G  !!!!!!');
+								changeHeroLevel2('wrong');
+							}
+				});	
+/***********************************************************************************************************************************************************/
+				/*  Time Out Call for Level 2*/
+	    		$('#timeOutLevel2').onTap(function(){
+	    			console.log("gameOverLevel2:"+gameOverLevel2);
+					if(!gameOverLevel2){
+						$('#messageBoxLevel2').show();
+						$('#questionLevel2').hide();
+						$('#answer1Level2').hide();
+						$('#answer2Level2').hide();
+						$('#answer3Level2').hide();
+						$('#answer4Level2').hide();
+						$('#messageBoxLevel2').text(' T I M E    O U T  !!!!!!');
+						changeHeroLevel2('wrong');
+					}		
+				});
+/***********************************************************************************************************************************************************/
+	    		/* Answer button on tap function*/
+	    		$('#answer1Level3').onTap(function(){
+							if(1==answer){
+								$('#messageBoxLevel3').text(' C O R R E C T  !!!!!!');
+								fireLevel3('right');
+
+							}else{
+								$('#messageBoxLevel3').text(' W R O N G  !!!!!!');
+								fireLevel3('wrong');
+							}
+				});			
+/***********************************************************************************************************************************************************/
+	    		/* Answer button on tap function*/
+	    		$('#answer2Level3').onTap(function(){
+							if(2==answer){
+								$('#messageBoxLevel3').text(' C O R R E C T  !!!!!!');
+								fireLevel3('right');
+							}else{
+								$('#messageBoxLevel3').text(' W R O N G  !!!!!!');
+								fireLevel3('wrong');
+							}
+				});	
+/***********************************************************************************************************************************************************/
+	    		/* Answer button on tap function*/
+		  		$('#answer3Level3').onTap(function(){
+							if(3==answer){
+								$('#messageBoxLevel3').text(' C O R R E C T  !!!!!!');
+								fireLevel3('right');
+							}else{
+								$('#messageBoxLevel3').text(' W R O N G  !!!!!!');
+								fireLevel3('wrong');
+							}
+				});	
+/***********************************************************************************************************************************************************/
+	    		/* Answer button on tap function*/
+	    		$('#answer4Level3').onTap(function(){
+							if(4==answer){
+								$('#messageBoxLevel3').text(' C O R R E C T  !!!!!!');
+								fireLevel3('right');
+							}else{
+								$('#messageBoxLevel3').text(' W R O N G  !!!!!!');
+								fireLevel3('wrong');
+							}
+				});	
+/***********************************************************************************************************************************************************/
+	    		/* level 3 timeOut call button */
+	    		$('#timeOutLevel3').onTap(function(){
+			
+						$('#messageBoxLevel3').show();
+						$('#questionLevel3').hide();
+						$('#answer1Level3').hide();
+						$('#answer2Level3').hide();
+						$('#answer3Level3').hide();
+						$('#answer4Level3').hide();
+						$('#messageBoxLevel3').text(' T I M E    O U T  !!!!!!');
+						fireLevel3('wrong');
+							
+				});
+/***********************************************************************************************************************************************************/
+	    		/* Time outs are cleared , qustion and opions are hide ande only message box is displayed*/
+	    		$('.buttonClass').onTap(function(){
+					$('.progressBarFront').stop();
+
+	    			if(($('#level1Div').is(':visible'))== true){
+	    				clearTimeout(timeOutVarLevel1);
+						$('#messageBox').show();
+						$('#questionLevel1').hide();
+						$('#answer1Level1').hide();
+						$('#answer2Level1').hide();
+						$('#answer3Level1').hide();
+						$('#answer4Level1').hide();
+	    			}else if(($('#level2Div').is(':visible'))== true){
+	    				clearTimeout(timeOutVarLevel2);
+						$('#messageBoxLevel2').show();
+						$('#questionLevel2').hide();
+						$('#answer1Level2').hide();
+						$('#answer2Level2').hide();
+						$('#answer3Level2').hide();
+						$('#answer4Level2').hide();
+	    			}else if(($('#level3Div').is(':visible'))== true){
+	    				clearTimeout(timeOutVarLevel3);
+						$('#messageBoxLevel3').show();
+						$('#questionLevel3').hide();
+						$('#answer1Level3').hide();
+						$('#answer2Level3').hide();
+						$('#answer3Level3').hide();
+						$('#answer4Level3').hide();
+	    			}
+
+				});	
+
+/***********************************************************************************************************************************************************/
+
+
+	});//$(document).ready(function()  ENDING
+
+/***********************************************************************************************************************************************************/
+/***********************************************************************************************************************************************************/
+/***********************************************************************************************************************************************************/
+
+	</script>
+
+	<style type="text/css">
+		
+	body{
+		
+		width: 100vw;
+		height: 100vh;
+
+	}
+
+	/* Main Screen CSS START*/
+	.mainScreenForeground{
+				background-image: url('images/level1Background.png');
+				background-size: 100vw 100vh;
+				width: 100vw;
+				height: 100vh;
+	}
+	.mainScreenBackground{
+
+		background-image: url('images/mainScreenBackground.png');
+		background-repeat: no-repeat;
+		background-size: 100vw 100vh;
+		width: 100vw;
+		height: 100vh;
+	}
+
+	.logoMain{
+
+		background-image: url('images/logo.png');
+		background-repeat: no-repeat;
+		background-size: 400px 100px;
+		width: 400px;
+		height: 100px;
+		position: fixed;
+		left: 21%;
+    	top: 17%;
+	}
+	.buttonMain {
+
+	  border-radius: 28px;
+	  text-shadow: 4px 3px 6px #946f94;
+	  font-family: Georgia;
+	  color: #202b24;
+	  font-size: 35px;
+	  padding: 10px 10px 10px 10px;
+	  border: dotted #0076bf 4px;
+	  text-decoration: none;
+	  font-weight: 800;
+	  cursor: pointer;
+
+
+	}
+	.buttonMain:hover {
+	  background: #5778fa;
+	  text-decoration: none;
+	}
+	#playMainButton{
+
+		position: fixed;
+		top: 50%;
+		left: 15%;
+	}
+	#instructionMainButton{
+		position: fixed;
+		top: 50%;
+		left: 35%;
+	}
+	#creditMainButton{
+
+		position: fixed;
+		top: 70%;
+		left: 15%;
+	}
+	#quitMainButton{
+
+		position: fixed;
+		top: 70%;
+		left: 35%;
+	}
+	.logoFrameMain{
+
+		background-image: url('images/logoFrame.png');
+		background-repeat: no-repeat;
+		background-size: 500px 300px;
+		width: 500px;
+		height: 300px;
+		position: fixed;
+		left: 16%;
+		top: 1%;
+	}
+	.heroMain{
+
+		background-image: url('images/hero/hero4.png');
+		background-repeat: no-repeat;
+		width: 50px;
+		min-width: 30px;
+		height: 75px;
+		position: fixed;
+		left: 28%;
+		top: 70%;
+	}
+	.enemyMain{
+
+	 	background-image: url('images/enemyLeftClosed.png');
+		background-repeat: no-repeat;
+		background-size: 100px 100px;
+		width: 100px;
+		min-width: 70px;
+		height: 100px;
+		position: fixed;
+		left: 73%;
+		top: 50%;
+	}
+
+	/* Main Screen CSS ENDS*/
+	/* Level Screen CSS STARTS*/
+					
+
+					#level1Button{
+
+						position: fixed;
+						top: 50%;
+						left: 10%;
+					}
+					#level2Button{
+						position: fixed;
+						top: 50%;
+						left: 45%;
+					}
+					#level3Button{
+
+						position: fixed;
+						top: 70%;
+						left: 10%;
+					}
+					#levelBackButton{
+
+						position: fixed;
+						top: 70%;
+						left: 45%;
+					}
+
+	/* Level Screen CSS ENDS*/
+	/* Level  CSS STARTS */
+
+			.levelScreenBackground{
+				
+				background-image: url('images/level1Background.png');
+				background-color: #100f23;
+				background-size: 100vw 100vh;
+				width: 100vw;
+				height: 100vh;
+				animation: level1backgroundScroll 2s linear infinite;
+			}
+			/* Scrolling the level background */
+			@keyframes level1backgroundScroll {
+				from {background-position: 0 0;}
+				to {background-position: -100vw 0;}
+			}
+			
+			#moonLevel1{
+
+				background-image: url('images/moonLevel1.png');
+				background-size: 34px 32px;
+				width: 34px;
+				height: 32px;
+				position: fixed;
+				top: 30%;
+				left: 77%;
+			}
+			#heroLevel1,#heroLevel2{
+				background-image: url('images/hero/hero1.png');
+				background-size: 58px 92px;
+				width: 58px;
+				height: 92px;
+				position: fixed;
+				top: 68%;
+				left: 70%;
+				animation: heroRun 1s linear infinite;
+				z-index: 10;
+			}
+
+			@keyframes heroRun {
+				
+				0% {background-image: url('images/hero/hero1.png');}
+				25% {background-image: url('images/hero/hero2.png');}
+				50% {background-image: url('images/hero/hero3.png');}
+				75% {background-image: url('images/hero/hero2.png');}
+				100% {background-image: url('images/hero/hero1.png');}
+
+			}
+
+			#enemyLevel1{
+				
+				background-image: url('images/enemy/enemy1.png');
+				background-size: 158px 192px;
+				width: 158px;
+				height: 192px;
+				position: fixed;
+				top: 52%;
+				left:40%;
+				z-index: 10;
+				animation: enemyRun 1s linear infinite;
+
+			}
+
+			@keyframes enemyRun {
+
+				8% {background-image: url('images/enemy/enemy1.png');}
+				16% {background-image: url('images/enemy/enemy2.png');}
+				24% {background-image: url('images/enemy/enemy3.png');}
+				32% {background-image: url('images/enemy/enemy4.png');}
+				40% {background-image: url('images/enemy/enemy5.png');}
+				48% {background-image: url('images/enemy/enemy6.png');}
+				56% {background-image: url('images/enemy/enemy7.png');}
+				64% {background-image: url('images/enemy/enemy8.png');}
+				74% {background-image: url('images/enemy/enemy9.png');}
+				82% {background-image: url('images/enemy/enemy10.png');}
+				91% {background-image: url('images/enemy/enemy11.png');}
+				100% {background-image: url('images/enemy/enemy12.png');}
+			}
+
+			#wallHanging{
+	
+				background-image: url('images/wallHanging.png');
+				width: 94px;
+				height: 321px;
+				background-size: 94px 321px;
+				position: fixed;
+				top: 12%;
+				right: 0%;
+				z-index: 10;
+			}
+
+			/* Class to rotate the hanging wall after hiting enemy*/
+			.rotate{
+
+				animation-name: wallHangingRotate;
+				animation-duration:1s;
+				animation-iteration-count: 3;
+				animation-timing-function: linear;
+				animation-fill-mode: forwards;
+			}
+			@keyframes wallHangingRotate {
+				0% {transform: rotate(0deg);}
+				100%{transform: rotate(360deg);}
+			}
+
+			#messageBox,#messageBoxLevel2,#messageBoxLevel3{
+				font-family: cursive;
+    			font-size: 30px;
+    			color: aliceblue;
+				background-color: #5d414b;
+				width: 300px;
+				height: 100px;
+				background-size: 252px 78;
+				position: fixed;
+				top: 30%;
+				left: 32%;
+				z-index: 20;
+    			border-radius: 50px;
+				padding:50px;
+	   			border:1px solid #ffffff;
+
+			}
+			#questionLevel1,#questionLevel2,#questionLevel3{
+				font-family: cursive;
+    			font-size: 30px;
+    			color: aliceblue;
+				background-color: #5d414b;
+				width: 400px;
+				height: 30px;
+				background-size: 400px 30px;
+				position: fixed;
+				top: 3%;
+				left: 20%;
+				z-index: 20;
+    			border-radius: 30px;
+				padding: 10px;
+	   			border:1px solid #ffffff;
+
+			}
+			.buttonClass{
+				font-family: cursive;
+    			font-size: 30px;
+    			color: aliceblue;
+				background-color: #5d414b;
+				width: 90px;
+				height: 30px;
+				background-size: 90px 30px;
+				z-index: 20;
+    			border-radius: 30px;
+				padding: 10px;
+	   			border:1px solid #ffffff;
+	   			cursor: pointer;
+
+			}
+			#answer1Level1, #answer1Level2,#answer1Level3{
+				position: fixed;
+				top: 83%;
+				left: 10%;
+
+			}
+			#answer2Level1,#answer2Level2,#answer2Level3{
+				position: fixed;
+				top: 83%;
+				left: 29%;
+
+			}
+			#answer3Level1,#answer3Level2,#answer3Level3{
+				position: fixed;
+				top: 83%;
+				left: 47%;
+
+			}
+
+			#answer4Level1,#answer4Level2,#answer4Level3,#backPause{
+				position: fixed;
+				top: 83%;
+				left: 64%;
+
+			}			
+			#homeButton{
+				position: fixed;
+				left: 85%;
+				top: 3%;
+				background-color: #795548;
+
+			}
+			.pauseButton{
+				position: fixed;
+				left: 85%;
+				top: 3%;
+				background-color: #795548;
+				font-family: cursive;
+    			font-size: 30px;
+    			color: aliceblue;
+				background-color: #5d414b;
+				width: 90px;
+				height: 30px;
+				background-size: 90px 30px;
+				z-index: 20;
+    			border-radius: 30px;
+				padding: 10px;
+	   			border:1px solid #ffffff;
+	   			cursor: pointer;
+
+			}
+			#level2Div{
+
+				border:1px solid WHITE; 
+				z-index: 10;
+
+			}
+			.enemyLevel2{
+						
+				background-image: url('images/enemy/enemy15.png');
+				background-size: 50px 50px;
+				width: 50px;
+				height: 50px;
+				position: fixed;
+				top: 12%;
+				left:90%;
+				z-index: 10;
+				animation: enemyRunLevel2 1s linear infinite;
+
+			}
+
+			@keyframes enemyRunLevel2 {
+				
+				0% {background-image: url('images/enemy/enemy15.png');}
+				20% {background-image: url('images/enemy/enemy16.png');}
+				40% {background-image: url('images/enemy/enemy15.png');}
+				60% {background-image: url('images/enemy/enemy16.png');}
+				80% {background-image: url('images/enemy/enemy15.png');}
+				100% {background-image: url('images/enemy/enemy16.png');}
+
+			}
+
+			@keyframes enemyFallLevel2 {
+
+				0% {background-image: url('images/enemy/enemy17.png');}
+				20% {background-image: url('images/enemy/enemy18.png');}
+				40% {background-image: url('images/enemy/enemy17.png');}
+				60% {background-image: url('images/enemy/enemy18.png');}
+				80% {background-image: url('images/enemy/enemy17.png');}
+				100% {background-image: url('images/enemy/enemy18.png');}
+
+			}
+			.enemy2Level2{
+							
+				background-image: url('images/enemy/enemy19.png');
+				background-size: 50px 50px;
+				width: 50px;
+				height: 50px;
+				position: fixed;
+				top: 12%;
+				left:10%;
+				z-index: 10;
+				animation: enemy2RunLevel2 1s linear infinite;
+
+			}
+
+			@keyframes enemy2RunLevel2 {
+
+				
+				10% {background-image: url('images/enemy/enemy19.png');}
+				20% {background-image: url('images/enemy/enemy20.png');}
+				30% {background-image: url('images/enemy/enemy21.png');}
+				40% {background-image: url('images/enemy/enemy20.png');}
+				50% {background-image: url('images/enemy/enemy19.png');}
+				60% {background-image: url('images/enemy/enemy19.png');}
+				70% {background-image: url('images/enemy/enemy20.png');}
+				80% {background-image: url('images/enemy/enemy21.png');}
+				90% {background-image: url('images/enemy/enemy20.png');}
+				100% {background-image: url('images/enemy/enemy19.png');}
+
+
+			}
+			#centralPivot{
+
+				background-color: #f10707;
+				background-size: 10px 50px;
+				width: 10px;
+				height: 50px;
+				position: fixed;
+				top: 12%;
+				left:40%;
+				z-index: 10;
+			}
+
+			/* RED ALERT AREA in level 2*/
+			#red{
+				
+				position: fixed;
+				font-size: 30px;
+			    padding-top: 10%;
+			    font-style: oblique;
+			    font-family: cursive;
+			    padding-left: 30;
+			    color: #e8e6d4;
+				left: 0px;
+				top: 0px;
+				width: 200px;
+				height: 100vh;
+				background-color: #f10707;
+				opacity: 0;
+				animation: flashRed 1s linear infinite;
+
+
+
+			}
+			@keyframes flashRed {
+
+				0% {opacity: 0;}
+				16% {opacity: 0.5;}
+				34% {opacity: 0;}
+				50% {opacity: 0.5;}
+				67% {opacity: 0;}
+				84% {opacity: 0.5;}
+				100% {opacity: 0;}
+
+			}
+			.progressBarBack{
+
+			    position: fixed;
+			    border-radius: 20px;
+			    width: 100%;
+			    height: 20px;
+			    bottom: 0%;
+			    left: 0%;
+			    border: 2px solid #ffdabd;
+			    background-color: #fdfdfd ;
+			    z-index: 20;
+
+			}	
+			.progressBarFront{
+
+			    position: fixed;
+			    border-radius: 20px;
+			    width: 0%;
+			    height: 20px;
+			    bottom: 0%;
+			    left: 0%;
+			    border: 2px solid #ffdabd;
+			    background-color: #ed5565 ;
+			    z-index: 21;
+			}	
+
+			.level3ScreenBackground{
+							
+				background-image: url('images/level3Background.png');
+				background-color: #100f23;
+				background-size: 100vw 100vh;
+				width: 100vw;
+				height: 100vh;
+
+			}
+
+			#lava{
+
+				background-image: url('images/lava1.png');
+				height: 20%;
+				position: fixed;
+				bottom: 2%;
+				left: 17%;
+				right: 17%;
+				animation:lavaMove 3s linear infinite;
+
+			}
+			@keyframes lavaMove {
+
+				0% {background-image: url('images/lava1.png');background-position: 0 0;bottom: 2%;}
+				20% {background-image: url('images/lava2.png');}
+				40% {background-image: url('images/lava3.png');bottom: -2%;}
+				60% {background-image: url('images/lava1.png');}
+				80% {background-image: url('images/lava2.png');}
+				100% {background-image: url('images/lava3.png');background-position: -100vw 0;bottom: 2%;}
+		
+			}
+
+			#heroLevel3{
+				background-image: url('images/hero/hero2.png');
+				background-size: 58px 92px;
+				width: 58px;
+				height: 92px;
+				position: fixed;
+				top: 68%;
+				left: 3%;
+/*				animation: heroFireCanon 1s linear 1;
+*/				z-index: 10;
+			}
+
+			@keyframes heroFireCanon {
+				
+				0% {background-image: url('images/hero/hero2.png');}
+				17% {background-image: url('images/hero/hero3.png');}
+				34% {background-image: url('images/hero/hero2.png');}
+				50% {background-image: url('images/hero/hero3.png');}
+				67% {background-image: url('images/hero/hero2.png');}
+				84% {background-image: url('images/hero/hero3.png');}
+				100% {background-image: url('images/hero/hero2.png');}
+
+			}
+
+			#enemyLevel3{
+				
+				background-image: url('images/enemy/enemy22.png');
+				background-size: 100px 172px;
+			    width: 100px;
+			    height: 172px;
+			    position: fixed;
+			    top: 55%;
+			    left: 90%;
+				z-index: 10;
+/*				animation: enemyFireCanon 1s linear 1;
+*/
+			}
+
+			@keyframes enemyFireCanon {
+
+				0% {background-image: url('images/enemy/enemy22.png');}
+				17% {background-image: url('images/enemy/enemy23.png');}
+				34% {background-image: url('images/enemy/enemy22.png');}
+				50% {background-image: url('images/enemy/enemy23.png');}
+				67% {background-image: url('images/enemy/enemy22.png');}
+				84% {background-image: url('images/enemy/enemy23.png');}
+				100% {background-image: url('images/enemy/enemy22.png');}
+			}
+
+			#fireHero{
+
+				background-image: url('images/fire1.png');
+				background-size: 16px 16px;
+				width: 16px;
+				height: 16px;
+				position: fixed;
+				left: 9%;
+				top: 73%;
+				animation: fireBurn 1s linear infinite;
+			}
+			#fireEnemy{
+
+				background-image: url('images/fire1.png');
+				background-size: 16px 16px;
+				width: 16px;
+				height: 16px;
+				position: fixed;
+				left: 89%;
+				top: 73%;
+				animation: fireBurn 1s linear infinite;
+
+			}
+			@keyframes fireBurn{
+
+				0%{background-image: url('images/fire1.png');}
+				35%{background-image: url('images/fire2.png');}
+				70%{background-image: url('images/fire3.png');}
+				100%{background-image: url('images/fire1.png');}
+
+			} 
+			#canonHero{
+
+				background-image: url('images/bullet-L.png');
+				background-size: 68px 36px;
+				width: 68px;
+				height: 36px;
+				position: fixed;
+				left: 21%;
+				top: 68%;
+				animation: canonFireHero 1s linear 1;
+				
+
+			}
+			@keyframes canonFireHero{
+
+				0%{left: 21%;}
+				70%{left: 90%;}
+				100%{left: 90%;}
+			} 
+			#canonEnemy{
+
+				background-image: url('images/bullet-R.png');
+				background-size: 68px 36px;
+				width: 68px;
+				height: 36px;
+				position: fixed;
+				left: 72%;
+				top: 68%;
+				animation: canonFireEnemy 1s linear 1;
+				
+
+			}
+			@keyframes canonFireEnemy{
+
+				0%{left: 89%;}
+				70%{left: 4%;}
+				100%{left: 4%;}
+			} 
+
+			.life{
+
+				background-image: url('images/life/heart1.png');
+				background-size: 20px 20px;
+				width: 20px;
+				height: 20px;
+				position: fixed;
+				top: 61%;
+				left: 2%;
+				animation: lifeBlink 1s linear infinite;
+
+			}
+			@keyframes lifeBlink{
+
+				0%{background-image: url('images/life/heart1.png');}
+				12%{background-image: url('images/life/heart2.png');}
+				25%{background-image: url('images/life/heart3.png');}
+				37%{background-image: url('images/life/heart4.png');}
+				50%{background-image: url('images/life/heart5.png');}
+				63%{background-image: url('images/life/heart6.png');}
+				76%{background-image: url('images/life/heart7.png');}
+				88%{background-image: url('images/life/heart8.png');}
+				100%{background-image: url('images/life/heart1.png');}
+			} 
+
+			.scrollDiv{
+				
+					font-family: cursive;
+					font-size: 30px;
+					padding: 30px;
+					color: #442434;
+					width: 975px;
+					height: 391px;
+					position: fixed;
+					left: 0%;
+					top: 12%;
+					overflow: auto;
+					border: 10px solid #79555d;
+					border-radius: 84px;
+
+			}
+			#pauseScreen{
+				
+					font-family: cursive;
+					font-size: 30px;
+					padding: 30px;
+					padding-top: 70px;
+					color: #442434;
+					width: 90%;
+					height: 90%;
+					position: fixed;
+					left: 0%;
+					top: 0%;
+					overflow: auto;
+					border: 10px solid #79555d;
+					border-radius: 84px;
+
+			}
+			#nameSID{
+
+				width: 30px;
+				height: 40px;
+				position: fixed;
+				top: 0%
+				left:0%;
+				color: #f0f8ff;
+				font-size: 21px;
+    			font-family: initial;
+
+			}
+	</style>
+
+
+
+
+</head>
+<body>
+		<div  id='nameSID' >						Tony Toms(SID:217179842)							</div>				
+
+ 		 <audio controls style="display: none;"" id="mainScreenAudio" loop>
+				<source src="sounds/mainScreen.wav" type="audio/mpeg">
+		</audio>  
+		 <audio controls style="display: none;" id="levelScreenAudio" loop>
+				<source src="sounds/levelScreen.mp3" type="audio/mpeg">
+		</audio> 
+		 <audio controls style="display: none;" id="gameOverAudio" loop>
+				<source src="sounds/gameOver.ogg" type="audio/mpeg">
+		</audio> 
+		 <audio controls style="display: none;" id="VictoryAudio" loop>
+				<source src="sounds/Victory.ogg" type="audio/mpeg">
+		</audio> 
+
+
+	<!-- MAIN SCREEN DIV -->
+	<div  id='mainScreenDiv' class='mainScreenBackground'>
+	<div class='mainScreenForeground'>
+		
+
+
+		<div class='logoMain'>															    				</div>
+		<div class='logoFrameMain'>																		</div>
+		<div class='heroMain'>																				</div>
+		<div class='enemyMain'>														   					</div>
+
+		<div id='playMainButton' 		  class='buttonMain'>				PLAY						</div>
+		<div id='instructionMainButton'   class='buttonMain'>				instruction 				</div>
+		<div id='creditMainButton'	 	  class='buttonMain'>				credit 						</div>
+		<div id='QuitMainButton' 		  class='buttonMain'>				quit 						</div>
+	</div>
+	</div>
+
+
+	<!-- LEVELS DIV -->
+	<div  id='levelScreenDiv' class='mainScreenBackground'>
+	<div class='mainScreenForeground'>
+
+
+		<div class='logoMain'>																				</div>
+		<div class='logoFrameMain'>																		</div>
+		<div class='heroMain'>																				</div>
+		<div class='enemyMain'>																			</div>
+		
+		<div id='level1Button' 		  class='buttonMain'>				    LEVEL 1					    </div>
+		<div id='level2Button' 		  class='buttonMain'>					LEVEL 2		 				</div>
+		<div id='level3Button' 	  	  class='buttonMain'>					LEVEL 3						</div>
+		<div id='levelBackButton' 	  class='buttonMain'>					BACK 						</div>
+	</div>
+	</div>
+
+
+
+	<!-- LEVEL  1   DIV -->
+	<div  id='level1Div' class='levelScreenBackground'>
+
+
+		<div  id='moonLevel1' >																			</div>
+		<div  id='heroLevel1' >																			</div>
+		<div  id='enemyLevel1' 	>																		</div>
+		<div  id='messageBox'>												messageBox					</div>				
+		<div  id='questionLevel1'>											q1							</div>				
+		<div  id='answer1Level1' class='buttonClass' >						a1							</div>				
+		<div  id='answer2Level1' class='buttonClass'>						a2							</div>				
+		<div  id='answer3Level1' class='buttonClass'>						a3							</div>				
+		<div  id='answer4Level1' class='buttonClass'>						a4							</div>		
+		<div  id='timeOutLevel1'>																		</div>		
+		<div  class='pauseButton' 	 >		Pause						</div>	
+
+		<button id='timerButtonLevel1' style="display: none;">				Timer Level1 				</button>
+
+		<div  class='progressBarBack' >		</div>				
+		<div  class='progressBarFront'>		</div>				
+
+	</div>
+
+
+
+	<!-- LEVEL  2   DIV -->
+	<div  id='level2Div' class='levelScreenBackground'>
+
+
+		<div  id='moonLevel1' >																			</div>
+		<div  id='heroLevel2' >																			</div>
+		<div  id='centralPivot' 	>																	</div> 
+		<div  id='messageBoxLevel2'>										messageBox					</div>				
+		<div  id='questionLevel2'>											q1							</div>				
+		<div  id='answer1Level2' class='buttonClass' >						a1							</div>				
+		<div  id='answer2Level2' class='buttonClass'>						a2							</div>				
+		<div  id='answer3Level2' class='buttonClass'>						a3							</div>				
+		<div  id='answer4Level2' class='buttonClass'>						a4							</div>		
+		<div  id='timeOutLevel2'>																		</div>		
+
+		<div  class='pauseButton'  >		Pause						</div>	
+		<button id='timerButtonLevel2'  style="display: none;">				Timer Level1 				</button>
+		
+		<div id='red'>ALERT !!!  MONSTERS FALLING AREA 													</div>
+		<div  class='progressBarBack' >																	</div>				
+		<div  class='progressBarFront'>																	</div>	
+	</div>
+
+
+
+
+	<!-- LEVEL  3   DIV -->
+	<div  id='level3Div' class='level3ScreenBackground'>
+
+
+		<div  id='moonLevel1' >																			</div>
+		<div  id='heroLevel3' >																			</div>
+		<div  id='lava' >																				</div>
+		<div  id='enemyLevel3' 	>																		</div> 
+		<div  id='messageBoxLevel3'>										messageBox					</div>				
+		<div  id='questionLevel3'>											q1							</div>				
+		<div  id='answer1Level3' class='buttonClass' >						a1							</div>				
+		<div  id='answer2Level3' class='buttonClass'>						a2							</div>				
+		<div  id='answer3Level3' class='buttonClass'>						a3							</div>				
+		<div  id='answer4Level3' class='buttonClass'>						a4							</div>		
+		<div  id='timeOutLevel3'>																		</div>		
+
+		<div  class='pauseButton'  >		Pause						</div>	
+		<button id='timerButtonLevel3'  style="display: none;">				Timer Level1 				</button>
+
+		<div  id='fireHero' >																			</div>				
+		<div  id='fireEnemy' >																			</div>	
+
+
+		<div  class='progressBarBack' >																	</div>				
+		<div  class='progressBarFront'>																	</div>	
+	</div>
+
+	<!-- instruction   DIV -->
+	<div id='instructionDiv' class='mainScreenForeground'>
+		<div  id='homeButton' 	class='buttonClass' onclick="goHome()">		Home						</div>				
+
+		<div id="instructionText">
+		<div class=scrollDiv>
+
+					<h1>GENERAL RULES</h1><br><br>
+			* You will be asked a mathematic question.<br>
+			* You will be given 4 options out of which one is correct.<br>
+			* You have 10 seconds to answer each question, after that a 'Time Out' is called.<br>
+			
+			<br><br><br>
+			
+					<h1>Level 1</h1><br><br>
+			* If you answer correct , the monster will fall back.<br>
+			* If you answer wrong , the monster will come closer.<br>
+			* If a 'Time Out' is called , the monster will come closer.<br>
+			* If the monster goes beyond left screen , you <em>WIN</em>.<br>
+			* If the monster touches you, you <em>FAIL</em>.<br>
+			
+			<br><br><br>
+			
+					<h1>Level 2</h1><br><br>
+			* If you answer correct , you will move right.<br>
+			* If you answer wrong , you will move to 'RED ALERT' area on left.<br>
+			* If a 'Time Out' is called , you will move to 'RED ALERT' area on left.<br>
+			* If you go beyond the right screen , you <em>WIN</em>.<br>
+			* If you enters the 'RED ALERT' area, you <em>FAIL</em>.<br>
+			
+			<br><br><br>
+			
+					<h1>Level 3</h1><br><br>
+			* enough RUNNING, Its TIME TO KILL THE MONSTER .<br>
+			* You and the monster has 6 lifes(heart) each shown above each player  .<br>
+			* If you answer correct , the monster will loose his life.<br>
+			* If you answer wrong , you will loose life.<br>
+			* If a 'Time Out' is called , you will loose life.<br>
+			* If the monster looses all lifes before you does, you <em>WIN</em>.<br>
+			* If you looses all lifes before the monster does, you <em>FAIL</em>.<br>
+			<br><br><br>
+			<br><br><br>
+			<br><br><br>
+		</div>
+		</div>
+	</div>
+
+	<!-- Credits Div  DIV -->
+	<div id='creditsDiv' class='mainScreenForeground'>
+
+		<div  id='homeButton' 	class='buttonClass' onclick="goHome()">		Home						</div>				
+		<div class=scrollDiv>
+
+					<h1>CREDITS</h1><br><br>
+			
+					1) enemy1.png - enemy14.png, enemy22.png-enemy25.png,enemyLeftClosed.png<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;From:https://opengameart.org/content/cruncher-monster<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Author: bevouliin.com<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;License : CC BY<br>
+					2) hero1.png - hero4.png<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;From:https://opengameart.org/content/rpg-man<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Author: Hyptosis<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;License:CC0 Publi Domain<br>
+					3) mainScreenBackground.png<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;From:https://commons.wikimedia.org/wiki/File:Alto%27s_Adventure_screenshot_-_B04_Quarter_Pipe.png<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Author:Ryan Cash of Snowman<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;License: Creative Commons Attribution-Share Alike 3.0 Unported<br>
+					4)logo.png<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;From: Created by myself using online free text maker<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Link:https://cooltext.com/Render-Image?RenderID=243844384589858&LogoId=2438443845<br>
+					5)enemy15.png -enemy18.png<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;From:https://opengameart.org/content/bevouliin-green-zombie-sprite-sheets-game-character-for-game-developers<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Author:bevouliin.com<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;License: CC0 Public Domain<br>
+					6) enemy19.png -enemy21.png<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;From:https://opengameart.org/content/bat-sprite<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Author:bagzie<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;License:OGA-BY 3.0<br>
+					7) bullet-L.png , bullet-R.png,weapons in level3Background.png<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;From:https://opengameart.org/content/time-canon-sprites-svg<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Author: qubodup<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;License: CC BY 3.0<br>
+					8)fire1.png- fire3.png, lava1.png-lava3.png, fire1.png - fire3.png<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;From:https://opengameart.org/content/grotto-escape-ii-environment<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Author:ansimuz<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;License: CC-By 3.0<br>
+					9)heart1.png- heart8.png<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;From:https://opengameart.org/content/shining-coin-shining-health-shining-power-up-sprite-sheets<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Author:bevouliin.com<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;License: CC0 Pubic Domain<br>
+					10)gameOver.ogg,Victory.ogg<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;From:https://opengameart.org/content/generic-8-bit-jrpg-soundtrack<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Author: avgvsta<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;License: CC BY 3.0<br>
+					11)mainScreen.wav<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;From:https://opengameart.org/content/loading-screen-loop<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Author:Brandon Morris(Submitted by HaelDB)<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Licenses: CC By 3.0<br>
+					12)levelScreen.mp3<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;From:https://opengameart.org/content/battle-theme-a<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Author:cynicmusic<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;CC0 Public Domain<br>
+					13)logoFrame.png<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;From:https://openclipart.org/detail/268239/ornate-vintage-floral-frame<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Author:GDJ<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;License:public domain image<br>
+					14)level1Background.png,level3Background.png,moonLevel1.png,wallHanging.png<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;From :https://opengameart.org/content/dirt-platformer-tiles<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Author:Sharm<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;Licenses:CC-By 3.0, OGA-BY 3.0<br>
+			
+			<br><br><br>
+			<br><br><br>
+			<br><br><br>
+
+		</div>
+
+
+	</div>
+	<div id="pauseScreen" class='mainScreenForeground'>
+		<div  id='homeButton' 	class='buttonClass' onclick="goHome()">		Reset						</div>				
+		
+		<div id='helpButton'  		  class='buttonMain'>				Help 						</div>
+		<div id='ResumeButton'	 	  class='buttonMain'>				Resume 						</div>
+		<div id='backPause' 		  class='buttonClass' style="display: none;">				Back 						</div>	
+		<div id="instructionTextPauseScreen" style="display: none;">
+		<div class=scrollDiv>
+
+					<h1>GENERAL RULES</h1><br><br>
+			* You will be asked a mathematic question.<br>
+			* You will be given 4 options out of which one is correct.<br>
+			* You have 10 seconds to answer each question, after that a 'Time Out' is called.<br>
+			
+			<br><br><br>
+			
+					<h1>Level 1</h1><br><br>
+			* If you answer correct , the monster will fall back.<br>
+			* If you answer wrong , the monster will come closer.<br>
+			* If a 'Time Out' is called , the monster will come closer.<br>
+			* If the monster goes beyond left screen , you <em>WIN</em>.<br>
+			* If the monster touches you, you <em>FAIL</em>.<br>
+			
+			<br><br><br>
+			
+					<h1>Level 2</h1><br><br>
+			* If you answer correct , you will move right.<br>
+			* If you answer wrong , you will move to 'RED ALERT' area on left.<br>
+			* If a 'Time Out' is called , you will move to 'RED ALERT' area on left.<br>
+			* If you go beyond the right screen , you <em>WIN</em>.<br>
+			* If you enters the 'RED ALERT' area, you <em>FAIL</em>.<br>
+			
+			<br><br><br>
+			
+					<h1>Level 3</h1><br><br>
+			* enough RUNNING, Its TIME TO KILL THE MONSTER .<br>
+			* You and the monster has 6 lifes(heart) each shown above each player  .<br>
+			* If you answer correct , the monster will loose his life.<br>
+			* If you answer wrong , you will loose life.<br>
+			* If a 'Time Out' is called , you will loose life.<br>
+			* If the monster looses all lifes before you does, you <em>WIN</em>.<br>
+			* If you looses all lifes before the monster does, you <em>FAIL</em>.<br>
+			<br><br><br>
+			<br><br><br>
+			<br><br><br>
+		</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

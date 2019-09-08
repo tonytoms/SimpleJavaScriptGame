@@ -1,0 +1,55 @@
+1) enemy1.png - enemy14.png, enemy22.png-enemy25.png,enemyLeftClosed.png
+From:https://opengameart.org/content/cruncher-monster
+Author: bevouliin.com
+License : CC BY
+2) hero1.png - hero4.png
+From:https://opengameart.org/content/rpg-man
+Author: Hyptosis
+License:CC0 Publi Domain
+3) mainScreenBackground.png
+From:https://commons.wikimedia.org/wiki/File:Alto%27s_Adventure_screenshot_-_B04_Quarter_Pipe.png
+Author:Ryan Cash of Snowman
+License: Creative Commons Attribution-Share Alike 3.0 Unported
+4)logo.png
+From: Created by myself using online free text maker
+Link:https://cooltext.com/Render-Image?RenderID=243844384589858&LogoId=2438443845
+5)enemy15.png -enemy18.png
+From:https://opengameart.org/content/bevouliin-green-zombie-sprite-sheets-game-character-for-game-developers
+Author:bevouliin.com
+License: CC0 Public Domain
+6) enemy19.png -enemy21.png
+From:https://opengameart.org/content/bat-sprite
+Author:bagzie
+License:OGA-BY 3.0
+7) bullet-L.png , bullet-R.png,weapons in level3Background.png
+From:https://opengameart.org/content/time-canon-sprites-svg
+Author: qubodup
+License: CC BY 3.0
+8)fire1.png- fire3.png, lava1.png-lava3.png, fire1.png - fire3.png
+From:https://opengameart.org/content/grotto-escape-ii-environment
+Author:ansimuz
+License: CC-By 3.0
+9)heart1.png- heart8.png
+From:https://opengameart.org/content/shining-coin-shining-health-shining-power-up-sprite-sheets
+Author:bevouliin.com
+License: CC0 Pubic Domain
+10)gameOver.ogg,Victory.ogg
+From:https://opengameart.org/content/generic-8-bit-jrpg-soundtrack
+Author: avgvsta
+License: CC BY 3.0
+11)mainScreen.wav
+From:https://opengameart.org/content/loading-screen-loop
+Author:Brandon Morris(Submitted by HaelDB)
+Licenses: CC By 3.0
+12)levelScreen.mp3
+From:https://opengameart.org/content/battle-theme-a
+Author:cynicmusic
+CC0 Public Domain
+13)logoFrame.png
+From:https://openclipart.org/detail/268239/ornate-vintage-floral-frame
+Author:GDJ
+License:public domain image
+14)level1Background.png,level3Background.png,moonLevel1.png,wallHanging.png
+From :https://opengameart.org/content/dirt-platformer-tiles
+Author:Sharm
+Licenses:CC-By 3.0, OGA-BY 3.0
